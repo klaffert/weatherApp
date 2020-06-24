@@ -1,11 +1,8 @@
 :root {
-  --bg_main: #0a1f44;
-  --text_light: #fff;
-  --text_med: #53627c;
-  --text_dark: #3e5894;
-  --red: #ff1e42;
-  --darkred: #c3112d;
-  --orange: #ff8c00;
+  --bg_main: #eeeeee;
+  --text_light: #526b77;
+  --text_med: #eeeeee;
+  --text_dark: #7eb0a4;
 }
 
 * {
@@ -13,19 +10,26 @@
   padding: 0;
   box-sizing: border-box;
   font-weight: normal;
+  font-family: 'Roboto Slab', serif;
 }
 
 button {
   cursor: pointer;
+  color: var(--text_med);
+  padding: 3px 10px;
+  border: none;
+  border-radius: 50px;
+  background-color: var(--text_dark);
 }
 
 input {
   -webkit-appearance: none;
-}
-
-button,
-input {
-  border: none;
+  margin-left: 10px;
+  padding: 1.4px;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: 1px var(--text_dark) solid;
   background: none;
   outline: none;
   color: inherit;
@@ -46,6 +50,11 @@ body {
   background: var(--bg_main);
   color: var(--text_dark);
   padding: 50px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
 }
 
 .fetch-section {
@@ -100,7 +109,7 @@ body {
   padding: 0.2em 0.6em;
   border-radius: 30px;
   color: var(--text_light);
-  background: var(--orange);
+  background: var(--text_dark);
 }
 
 .fetch-section .city-icon {

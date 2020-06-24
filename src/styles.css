@@ -73,7 +73,7 @@ body {
 .fetch-section .city {
   position: relative;
   padding: 40px;
-  /* border-radius: 20px; */
+  border-radius: 20px;
   background: var(--text_light);
   color: var(--bg_main);
 }

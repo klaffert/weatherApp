@@ -4,16 +4,6 @@ const input = document.querySelector('.banner input');
 const errorMessage = document.querySelector('.banner .errorMessage');
 const list = document.querySelector('.fetch-section .cities');
 
-function convertToF(celsius) {
-  // make the given fahrenheit variable equal the given celsius value
-  // multiply the given celsius value by 9/5 then add 32
-  let fahrenheit = (celsius * 9) / 5 + 32;
-  // return the variable fahrenheit as the answer
-  return fahrenheit;
-}
-
-convertToF(30);
-
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const listItems = list.querySelectorAll('.fetch-section .city');

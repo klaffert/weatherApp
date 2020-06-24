@@ -20,9 +20,30 @@ form.addEventListener('submit', (event) => {
       const celsius = `${Math.trunc(data.current.temperature)}`;
       const fahrenheit = Math.trunc((celsius * 9) / 5 + 32);
 
+      let time = `${data.location.localtime}`.slice(10, 16);
+      time = time.split(':');
+      console.log(time);
+
+      let hours = Number(time[0]);
+      let minutes = Number(time[1]);
+
+      let timeValue;
+
+      if (hours > 0 && hours <= 12) {
+        timeValue = '' + hours;
+      } else if (hours > 12) {
+        timeValue = '' + (hours - 12);
+      } else if (hours == 0) {
+        timeValue = '12';
+      }
+
+      timeValue += minutes < 10 ? ':0' + minutes : ':' + minutes; // get minutes
+      timeValue += hours >= 12 ? ' P.M.' : ' A.M.'; // get AM/PM
+
       const content = `
-          <h2 class="city-name" data-name="${data.location.name}">
+          <h2 class="city-name" data-name="${data.location.name}, ${data.location.localtime}">
             <span>${data.location.name}</span>
+            <p>${timeValue}</p>
           </h2>
           <div class="city-temp">${fahrenheit}<sup>°F</sup></div>
           <figure>
@@ -34,7 +55,7 @@ form.addEventListener('submit', (event) => {
       list.appendChild(li);
     })
     .catch(() => {
-      errorMessage.textContent = 'Please search for a valid city!';
+      errorMessage.textContent = 'Needs to be a valid city!';
     });
   errorMessage.textContent = '';
   form.reset();
